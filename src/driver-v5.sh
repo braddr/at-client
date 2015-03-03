@@ -91,7 +91,7 @@ function detectos
             OS=${OS}_32
             ;;
         x86_64|amd64)
-            OS=${OS}_64
+            OS=${OS}_64_64
             ;;
         *)
             echo "unknown machine ($foo), aborting"
@@ -125,11 +125,7 @@ function checkoutRepeat
 #     -- force has no meaning for runmode == pull right now
 function runtests
 {
-    if [ "$2" == "force" ]; then
-        extraargs="&force=1"
-    fi
-
-    if [ "$2" == "test-DMD" ]; then
+    if [ "$1" == "test-DMD" ]; then
         OS=$(detectos)
         data=("test" "master" "1" "$OS")
         data=("${data[@]}" "3")
@@ -146,7 +142,7 @@ function runtests
         data=("${data[@]}" 16 0)
         data=("${data[@]}" 16 1)
         data=("${data[@]}" 16 2)
-    elif [ "$2" == "test-GDC" ]; then
+    elif [ "$1" == "test-GDC" ]; then
         OS=$(detectos)
         data=("test" "master" "2" "$OS")
         data=("${data[@]}" "1")
