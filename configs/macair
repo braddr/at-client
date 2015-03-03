@@ -1,0 +1,6 @@
+CPUS=2
+PARALLELISM=1
+platforms=(Darwin_64_32 Darwin_64_64)
+#platforms=(Darwin_64_32 )
+#platforms=(Darwin_64_64 )
+
