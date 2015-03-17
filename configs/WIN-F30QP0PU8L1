@@ -2,13 +2,27 @@ CPUS=2
 PARALLELISM=3
 platforms=(Win_64)
 
-export VCDIR="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC"
-export SDKDIR="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
-export VCBIN_DIR="$VCDIR\bin\x86_amd64"
-export INCLUDE="$VCDIR\include"
+# both win32 and 64 since the compiler is 32 bit
+export LINKCMD="z:\Administrator\sandbox\dmc\dm\bin\link.exe"
 
-export VCINSTALLDIR="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC"
-export WindowsSdkDir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
-export LINKCMD64="$VCBIN_DIR\link.exe"
+if [ "$OS" == "Win_32" ]; then
+    export PATH=/home/Administrator/sandbox/dmc/dm/bin:$PATH:/cygdrive/z/Administrator/sandbox/win32libs/dmd2/windows/lib
+    export LIB="z:\Administrator\sandbox\win32libs\dmd2\windows\lib"
+    export LINK="/INFORMATION"
+echo "LIB: $LIB"
+fi
 
-export PATH=/home/Administrator/sandbox/d/d-tester/dmc/dm/bin:$PATH:/cygdrive/c/"Program Files (x86)/Microsoft Visual Studio 11.0"/Common7/IDE/
+if [ "$OS" == "Win_64" ]; then
+    export VCDIR="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC"
+    export SDKDIR="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
+    export VCBIN_DIR="$VCDIR\bin\x86_amd64"
+    export INCLUDE="$VCDIR\include"
+
+    export VCINSTALLDIR="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC"
+    export WindowsSdkDir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
+    export LINKCMD64="$VCBIN_DIR\link.exe"
+
+    export PATH=/home/Administrator/sandbox/dmc/dm/bin:$PATH:/cygdrive/c/"Program Files (x86)/Microsoft Visual Studio 11.0"/Common7/IDE/:/home/Administrator/sandbox/win64libs/dmd2/windows/lib
+    export LIB="z:\Administrator\sandbox\win64libs\dmd2\windows\lib"
+fi
+

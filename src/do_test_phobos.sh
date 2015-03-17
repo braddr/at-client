@@ -17,12 +17,6 @@ case "$2" in
     stub)
         exit 0
         ;;
-    Win_32)
-        cp ../../../win32libs/dmd2/windows/bin/*.dll .
-        ;;
-    Win_64)
-        cp ../../../win64libs/dmd2/windows/bin/* .
-        ;;
 esac
 
 $makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile unittest >> ../phobos-unittest.log 2>&1
