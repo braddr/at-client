@@ -76,7 +76,7 @@ function detectos
         Linux|Darwin|FreeBSD)
             OS=$foo
             ;;
-        CYGWIN_NT-5.1|CYGWIN_NT-6.[01]|CYGWIN_NT-6.2-WOW64)
+        CYGWIN_NT-5.1|CYGWIN_NT-*)
             OS=Win
             ;;
         *)
@@ -184,7 +184,7 @@ function runtests
     # add project when that data is available
     echo -e "\nStarting $runmode run $runid, platform: $OS"
 
-    if [ ! -d $rundir ]; then
+    if [ ! -d "$rundir" ]; then
         mkdir "$rundir"
     fi
 
