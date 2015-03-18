@@ -18,10 +18,12 @@ case "$2" in
     Win_32)
         makecmd=/usr/bin/make
         EXE=.exe
+        EXTRA_ARGS+="-j$PARALLELISM"
         ;;
     Win_64)
         makecmd=/usr/bin/make
         EXE=.exe
+        EXTRA_ARGS+="-j$PARALLELISM"
         ;;
 esac
 
