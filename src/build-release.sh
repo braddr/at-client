@@ -35,6 +35,7 @@ fi
 
 for platform in ${platforms[@]}; do
     echo "platform: $platform"
+    export OS=$platform
     for repo in "dmd" "druntime" "phobos"; do
         if [ -d $top/$builddir/$repo ]; then
             rm -r $top/$builddir/$repo
