@@ -1,6 +1,5 @@
 CPUS=2
 PARALLELISM=3
-platforms=(Win_64)
 
 # both win32 and 64 since the compiler is 32 bit
 export LINKCMD="z:\Administrator\sandbox\dmc\dm\bin\link.exe"
