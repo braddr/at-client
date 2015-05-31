@@ -34,7 +34,7 @@ case "$1" in
     FreeBSD_32)
         makecmd=gmake
         ;;
-    FreeBSD_64)
+    FreeBSD_64_64)
         makecmd=gmake
         COMPILER_MODEL=64
         OUTPUT_MODEL=64

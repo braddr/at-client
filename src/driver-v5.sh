@@ -91,10 +91,7 @@ function detectos
             OS=${OS}_32
             ;;
         x86_64|amd64)
-            OS=${OS}_64
-            if [ "${OS}" != "FreeBSD_64" ]; then
-                OS=${OS}_64
-            fi
+            OS=${OS}_64_64
             ;;
         *)
             echo "unknown machine ($foo), aborting"
