@@ -76,7 +76,7 @@ function detectos
         Linux|Darwin|FreeBSD)
             OS=$foo
             ;;
-        CYGWIN_NT-5.1|CYGWIN_NT-*)
+        CYGWIN_NT-*)
             OS=Win
             ;;
         *)
