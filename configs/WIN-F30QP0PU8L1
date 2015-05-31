@@ -8,10 +8,9 @@ if [ "$OS" == "Win_32" ]; then
     export PATH=/home/Administrator/sandbox/dmc/dm/bin:$PATH:/cygdrive/z/Administrator/sandbox/win32libs/dmd2/windows/lib
     export LIB="z:\Administrator\sandbox\win32libs\dmd2\windows\lib"
     export LINK="/INFORMATION"
-echo "LIB: $LIB"
 fi
 
-if [ "$OS" == "Win_64" ]; then
+if [ "$OS" == "Win_32_64" ]; then
     export VCDIR="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC"
     export SDKDIR="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
     export VCBIN_DIR="$VCDIR\bin\x86_amd64"

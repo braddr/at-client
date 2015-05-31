@@ -1,8 +1,23 @@
+diff --git a/test/Makefile b/test/Makefile
+index 6fad95f..375e9ef 100644
+--- a/test/Makefile
++++ b/test/Makefile
+@@ -76,6 +76,10 @@ ifeq (Win_64,$(OS))
+     OS:=win64
+     MODEL:=64
+ endif
++ifeq (Win_32_64,$(OS))
++    OS:=win64
++    MODEL:=64
++endif
+ 
+ include ../src/osmodel.mak
+ 
 diff --git a/test/d_do_test.d b/test/d_do_test.d
-index 30488a1..6dd3a73 100755
+index 9f44678..d8104fd 100755
 --- a/test/d_do_test.d
 +++ b/test/d_do_test.d
-@@ -443,7 +443,7 @@ int main(string[] args)
+@@ -467,7 +467,7 @@ int main(string[] args)
          switch (envData.os)
          {
              case "win32": envData.ccompiler = "dmc"; break;
@@ -11,4 +26,3 @@ index 30488a1..6dd3a73 100755
              default:      envData.ccompiler = "g++"; break;
          }
      }
-

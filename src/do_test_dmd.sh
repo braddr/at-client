@@ -20,7 +20,7 @@ case "$2" in
         EXE=.exe
         EXTRA_ARGS+="-j$PARALLELISM"
         ;;
-    Win_64)
+    Win_32_64)
         makecmd=/usr/bin/make
         EXE=.exe
         EXTRA_ARGS+="-j$PARALLELISM"
