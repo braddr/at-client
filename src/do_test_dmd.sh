@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -x
+# set -x
 
 # args:
 #    1) directory for build
@@ -17,12 +17,11 @@ case "$2" in
         ;;
     Win_32)
         makecmd=/usr/bin/make
-        EXE=.exe
         EXTRA_ARGS+="-j$PARALLELISM"
         ;;
     Win_32_64)
         makecmd=/usr/bin/make
-        EXE=.exe
+        makefile=win32.mak
         EXTRA_ARGS+="-j$PARALLELISM"
         ;;
 esac
@@ -31,14 +30,14 @@ if [ "$3" == "pull" ]; then
     ARGS="-O -inline -release"
 fi
 
-cd $1/dmd/test
+cd $1/dmd
 
-# parallelism rules are either too weak or make is broken and occasionally the directory isn't properly created first
-$makecmd MODEL=$OUTPUT_MODEL RESULTS_DIR=generated generated/d_do_test$EXE >> ../../dmd-unittest.log 2>&1
+## parallelism rules are either too weak or make is broken and occasionally the directory isn't properly created first
+#$makecmd MODEL=$OUTPUT_MODEL RESULTS_DIR=generated generated/d_do_test$EXE >> ../dmd-unittest.log 2>&1
 if [ ! -z "$ARGS" ]; then
-    $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated ARGS="$ARGS" >> ../../dmd-unittest.log 2>&1
+    $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated ARGS="$ARGS" -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
 else
-    $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated >> ../../dmd-unittest.log 2>&1
+    $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
 fi
 
 if [ $? -ne 0 ]; then

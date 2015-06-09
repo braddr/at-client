@@ -12,7 +12,7 @@ echo -e "\tbuilding phobos"
 
 cd $1/phobos
 
-$makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile >> ../phobos-build.log 2>&1
+$makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile auto-tester-build >> ../phobos-build.log 2>&1
 if [ $? -ne 0 ]; then
     echo -e "\tphobos failed to build"
     exit 1

@@ -12,7 +12,7 @@ echo -e "\tbuilding druntime"
 
 cd $1/druntime
 
-$makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile >> ../druntime-build.log 2>&1
+$makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile auto-tester-build >> ../druntime-build.log 2>&1
 if [ $? -ne 0 ]; then
     echo -e "\tdruntime failed to build"
     exit 1
