@@ -16,9 +16,11 @@ case "$2" in
         exit 0
         ;;
     Win_32)
+        makecmd=/usr/bin/make
         EXTRA_ARGS+="-j$PARALLELISM"
         ;;
     Win_32_64)
+        makecmd=/usr/bin/make
         makefile=win32.mak
         EXTRA_ARGS+="-j$PARALLELISM"
         ;;
