@@ -1,8 +1,30 @@
+diff --git a/etc/c/zlib/win64.mak b/etc/c/zlib/win64.mak
+index 0c387c9..b6fb208 100644
+--- a/etc/c/zlib/win64.mak
++++ b/etc/c/zlib/win64.mak
+@@ -1,13 +1,12 @@
+ # Makefile for zlib64
+ 
+ MODEL=64
+-VCDIR=\Program Files (x86)\Microsoft Visual Studio 10.0\VC
+ 
+-CC="$(VCDIR)\bin\amd64\cl"
+-LD="$(VCDIR)\bin\amd64\link"
+-LIB="$(VCDIR)\bin\amd64\lib"
++CC="$(VCBIN_DIR)\cl"
++LD="$(VCBIN_DIR)\link"
++LIB="$(VCBIN_DIR)\lib"
+ 
+-CFLAGS=/O2 /nologo /I"$(VCDIR)\INCLUDE"
++CFLAGS=/O2 /nologo /I"$(VCINSTALLDIR)\INCLUDE"
+ LIBFLAGS=/nologo
+ LDFLAGS=/nologo
+ O=.obj
 diff --git a/win64.mak b/win64.mak
-index 9746daf..a35184b 100644
+index 7640595..6ff7422 100644
 --- a/win64.mak
 +++ b/win64.mak
-@@ -26,10 +26,6 @@ CP=cp
+@@ -30,14 +30,10 @@ CP=cp
  
  DIR=\dmd2
  
@@ -12,8 +34,14 @@ index 9746daf..a35184b 100644
 -
  ## Flags for VC compiler
  
- #CFLAGS=/Zi /nologo /I"$(VCDIR)\INCLUDE" /I"$(SDKDIR)\Include"
-@@ -52,9 +48,9 @@ UDFLAGS=-conf= -g -m$(MODEL) -O -w -dip25 -I$(DRUNTIME)\import
+-#CFLAGS=/Zi /nologo /I"$(VCDIR)\INCLUDE" /I"$(SDKDIR)\Include"
+-CFLAGS=/O2 /nologo /I"$(VCDIR)\INCLUDE" /I"$(SDKDIR)\Include"
++#CFLAGS=/Zi /nologo /I"$(VCINSTALLDIR)\INCLUDE" /I"$(WindowsSdkDir)\Include"
++CFLAGS=/O2 /nologo /I"$(VCINSTALLDIR)\INCLUDE" /I"$(WindowsSdkDir)\Include"
+ 
+ ## Location of druntime tree
+ 
+@@ -56,9 +52,9 @@ UDFLAGS=-conf= -g -m$(MODEL) -O -w -dip25 -I$(DRUNTIME)\import
  
  ## C compiler, linker, librarian
  
@@ -26,3 +54,24 @@ index 9746daf..a35184b 100644
  MAKE=make
  
  ## D compiler
+@@ -670,17 +666,17 @@ CC32=$(CC)\..\..\cl
+ 
+ # build phobos32mscoff.lib
+ phobos32mscoff:
+-	$(MAKE) -f win64.mak "DMD=$(DMD)" "MAKE=$(MAKE)" MODEL=32mscoff "CC=\$(CC32)"\"" "AR=\$(AR)"\"" "VCDIR=$(VCDIR)" "SDKDIR=$(SDKDIR)"
++	$(MAKE) -f win64.mak "DMD=$(DMD)" "MAKE=$(MAKE)" MODEL=32mscoff "CC=\$(CC32)"\"" "AR=\$(AR)"\""
+ 
+ # run unittests for 32-bit COFF version
+ unittest32mscoff:
+-	$(MAKE) -f win64.mak "DMD=$(DMD)" "MAKE=$(MAKE)" MODEL=32mscoff "CC=\$(CC32)"\"" "AR=\$(AR)"\"" "VCDIR=$(VCDIR)" "SDKDIR=$(SDKDIR)" unittest
++	$(MAKE) -f win64.mak "DMD=$(DMD)" "MAKE=$(MAKE)" MODEL=32mscoff "CC=\$(CC32)"\"" "AR=\$(AR)"\""
+ 
+ ######################################################
+ 
+ $(ZLIB): $(SRC_ZLIB)
+ 	cd etc\c\zlib
+-	$(MAKE) -f win64.mak MODEL=$(MODEL) zlib$(MODEL).lib "CC=\$(CC)"\"" "LIB=\$(AR)"\"" "VCDIR=$(VCDIR)"
++	$(MAKE) -f win64.mak MODEL=$(MODEL) zlib$(MODEL).lib "CC=\$(CC)"\"" "LIB=\$(AR)"\""
+ 	cd ..\..\..
+ 
+ ################## DOCS ####################################

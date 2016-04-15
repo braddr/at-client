@@ -16,13 +16,11 @@ case "$2" in
         exit 0
         ;;
     Win_32)
-        makecmd=/usr/bin/make
-        EXTRA_ARGS+="-j$PARALLELISM"
+        export PARALLELISM
         ;;
     Win_32_64)
-        makecmd=/usr/bin/make
         makefile=win32.mak
-        EXTRA_ARGS+="-j$PARALLELISM"
+        export PARALLELISM
         ;;
 esac
 
@@ -32,8 +30,6 @@ fi
 
 cd $1/dmd
 
-## parallelism rules are either too weak or make is broken and occasionally the directory isn't properly created first
-#$makecmd MODEL=$OUTPUT_MODEL RESULTS_DIR=generated generated/d_do_test$EXE >> ../dmd-unittest.log 2>&1
 if [ ! -z "$ARGS" ]; then
     $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated ARGS="$ARGS" -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
 else

@@ -1,5 +1,5 @@
 diff --git a/test/Makefile b/test/Makefile
-index 6fad95f..375e9ef 100644
+index 7d4ab8c..3f04abd 100644
 --- a/test/Makefile
 +++ b/test/Makefile
 @@ -76,6 +76,10 @@ ifeq (Win_64,$(OS))
@@ -14,15 +14,34 @@ index 6fad95f..375e9ef 100644
  include ../src/osmodel.mak
  
 diff --git a/test/d_do_test.d b/test/d_do_test.d
-index 9f44678..d8104fd 100755
+index 847351c..7710098 100755
 --- a/test/d_do_test.d
 +++ b/test/d_do_test.d
-@@ -467,7 +467,7 @@ int main(string[] args)
+@@ -470,7 +470,7 @@ int main(string[] args)
          switch (envData.os)
          {
              case "win32": envData.ccompiler = "dmc"; break;
 -            case "win64": envData.ccompiler = `\"Program Files (x86)"\"Microsoft Visual Studio 10.0"\VC\bin\amd64\cl.exe`; break;
-+            case "win64": envData.ccompiler = `c:\"Program Files (x86)"\"Microsoft Visual Studio 11.0"\VC\bin\x86_amd64\cl.exe`; break;
++            case "win64": envData.ccompiler = environment.get("VCBIN_DIR") ~ `\cl.exe`; break;
              default:      envData.ccompiler = "g++"; break;
          }
      }
+diff --git a/win32.mak b/win32.mak
+index 3c6054f..1683109 100644
+--- a/win32.mak
++++ b/win32.mak
+@@ -1,12 +1,11 @@
+-MAKE=make
+ 
+ auto-tester-build:
+ 	cd src
+-	$(MAKE) -f win32.mak auto-tester-build
++	make -f win32.mak auto-tester-build
+ 	cd ..
+ 
+ auto-tester-test:
+ 	cd test
+-	$(MAKE)
++	gmake -j$(PARALLELISM)
+ 	cd ..
+ 
