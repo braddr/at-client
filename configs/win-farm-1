@@ -1,0 +1,22 @@
+CPUS=2
+PARALLELISM=3
+TESTER_TIMEOUT=7200
+
+# both win32 and 64 since the compiler is 32 bit
+export LINKCMD="c:\cygwin\home\braddr\sandbox\dm\bin\link.exe"
+
+if [ "$OS" == "Win_32" ]; then
+    export PATH=/home/braddr/sandbox/dm/bin:$PATH:/cygdrive/c/cygwin/home/braddr/sandbox/win32libs/dmd2/windows/bin
+    export LIB="c:\cygwin\home\braddr\sandbox\win32libs\dmd2\windows\lib"
+fi
+
+if [ "$OS" == "Win_32_64" ]; then
+    export VCINSTALLDIR="C:\vs2013\VC"
+    export WindowsSdkDir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
+    export VCBIN_DIR="$VCINSTALLDIR\bin\x86_amd64"
+    export INCLUDE="$VCINSTALLDIR\include"
+    export LINKCMD64="$VCBIN_DIR\link.exe"
+    export PATH=/home/braddr/sandbox/dm/bin:$PATH:/cygdrive/c/vs2013/VC/bin:/cygdrive/c/vs2013/Common7:/home/braddr/sandbox/win64libs/dmd2/windows/bin
+    export LIB="c:\cygwin\home\braddr\sandbox\win64libs\dmd2\windows\lib"
+fi
+
