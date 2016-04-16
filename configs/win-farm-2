@@ -1,0 +1,25 @@
+CPUS=4
+PARALLELISM=4
+
+# both win32 and 64 since the compiler is 32 bit
+export LINKCMD="d:\sandbox\dm\bin\link.exe"
+
+if [ "$OS" == "Win_32" ]; then
+    export PATH=/home/braddr/sandbox/dm/bin:$PATH:/home/braddr/sandbox/win32libs/dmd2/windows/bin
+    export LIB="d:\sandbox\win32libs\dmd2\windows\lib"
+fi
+
+if [ "$OS" == "Win_32_64" ]; then
+    export VCDIR="d:\vs2013\VC"
+    export SDKDIR="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
+    export VCBIN_DIR="$VCDIR\bin\x86_amd64"
+    export INCLUDE="$VCDIR\include"
+
+    export VCINSTALLDIR="d:\vs2013\VC"
+    export WindowsSdkDir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
+    export LINKCMD64="$VCBIN_DIR\link.exe"
+
+    export PATH=/home/braddr/sandbox/dm/bin:$PATH:/cygdrive/d/vs2013/Common7/IDE/:/cygdrive/d/vs2013/vc/bin:/home/braddr/sandbox/win64libs/dmd2/windows/lib
+    export LIB="d:\sandbox\win64libs\dmd2\windows\lib"
+fi
+
