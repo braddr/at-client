@@ -8,7 +8,7 @@
 
 . src/setup_env.sh "$2"
 
-if [ "${2:0:7}" == "Darwin_" ]; then
+if [ "${2:0:7}" == "Darwin_" -o "${2:0:6}" == "Win_32" ]; then
     BINDIR=bin
 else
     BINDIR=bin$COMPILER_MODEL

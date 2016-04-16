@@ -19,7 +19,7 @@ echo -e "\tmerging pull: $3 $4 $5"
 
 cd $top/$1/$3
 
-if [ "$2" == "Win_32_64" ]; then
+if [ "$2" == "Win_32_64" -o "$2" == "Win_32" ]; then
     git stash --quiet
 fi
 
@@ -46,7 +46,7 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
-if [ "$2" == "Win_32_64" ]; then
+if [ "$2" == "Win_32_64" -o "$2" == "Win_32" ]; then
     git stash pop --quiet
 fi
 
