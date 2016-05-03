@@ -127,11 +127,12 @@ function runtests
 {
     if [ "$1" == "test-DMD" ]; then
         OS=$(detectos)
+        OS=Win_32_64
         data=("test" "master" "1" "$OS")
         data=("${data[@]}" "3")
-        data=("${data[@]}" "1" "D-Programming-Language" "dmd" "master")
-        data=("${data[@]}" "2" "D-Programming-Language" "druntime" "master")
-        data=("${data[@]}" "3" "D-Programming-Language" "phobos" "master")
+        data=("${data[@]}" "1" "dlang" "dmd" "master")
+        data=("${data[@]}" "2" "dlang" "druntime" "master")
+        data=("${data[@]}" "3" "dlang" "phobos" "master")
         data=("${data[@]}" 1 0)
         #if [ "$runmode" == "pull" ]; then
         #    data=("${data[@]}" 17 0 "https://github.com/yebblies/dmd.git" "issue4923")
