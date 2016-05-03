@@ -19,7 +19,7 @@ if [ "$OS" == "Win_32_64" ]; then
     export WindowsSdkDir="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
     export LINKCMD64="$VCBIN_DIR\link.exe"
 
-    export PATH=/home/braddr/sandbox/dm/bin:$PATH:/cygdrive/d/vs2013/Common7/IDE/:/cygdrive/d/vs2013/vc/bin:/home/braddr/sandbox/win64libs/dmd2/windows/lib
+    export PATH=/home/braddr/sandbox/dm/bin:$PATH:/cygdrive/d/vs2013/Common7/IDE/:/cygdrive/d/vs2013/vc/bin:/home/braddr/sandbox/win64libs/dmd2/windows/bin
     export LIB="d:\sandbox\win64libs\dmd2\windows\lib"
 fi
 
