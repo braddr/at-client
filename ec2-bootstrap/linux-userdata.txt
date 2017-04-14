@@ -1,0 +1,4 @@
+#!/bin/sh
+aws --region us-west-2 s3 cp s3://client-bootstrap.auto-tester.puremagic.com/at-client-bootstrap.sh /var/tmp/at-client-bootstrap.sh
+chmod u+x /var/tmp/at-client-bootstrap.sh
+/var/tmp/at-client-bootstrap.sh

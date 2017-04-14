@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # args:
 #   0 = app name

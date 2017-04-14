@@ -1,0 +1,46 @@
+{
+  "IamFleetRole": "arn:aws:iam::676184567544:role/aws-ec2-spot-fleet-role",
+  "AllocationStrategy": "lowestPrice",
+  "TargetCapacity": 1,
+  "SpotPrice": "0.0599",
+  "ValidFrom": "2017-04-06T03:16:44Z",
+  "ValidUntil": "2020-01-01T04:16:44Z",
+  "TerminateInstancesWithExpiration": true,
+  "LaunchSpecifications": [
+    {
+      "ImageId": "ami-9ea77ffe",
+      "InstanceType": "c3.large",
+      "KeyName": "cygwin-keypair-one",
+      "IamInstanceProfile": {
+        "Arn": "arn:aws:iam::676184567544:instance-profile/ec2-at-client"
+      },
+      "BlockDeviceMappings": [
+        {
+          "DeviceName": "/dev/sda1",
+          "Ebs": {
+            "DeleteOnTermination": true,
+            "VolumeType": "gp2",
+            "VolumeSize": 10,
+            "SnapshotId": "snap-6695bd41"
+          }
+        },
+        {
+          "DeviceName": "/dev/xvdca",
+          "VirtualName": "ephemeral0"
+        },
+        {
+          "DeviceName": "/dev/xvdcb",
+          "VirtualName": "ephemeral1"
+        }
+      ],
+      "SecurityGroups": [
+        {
+          "GroupId": "sg-47515a22"
+        }
+      ],
+      "UserData": "H4sIAFoP71gAA+2WbWvbMBDH81qf4pr2xUbnyM6TISOFQcNWBm2XdRtjDKPISmxmy0GSl4zS776Ts6RuaUkZpGWrfi8cIp18Z/3vpGvRxs7xkbDXs79B2PPrv2saQccPO30/7AZoF/jdMGxAb/ehNRqlNkwBNCaKxbG6327b/D9Ki/qBp3iLF3K6Kx9W4H63e6/+QRCs9e/3/BD1bwf9dgP8XQVU55nrf3REheH0TwaQaaq0mRSFieY/ZjrKUm2GTbbQPEuBlyprEmaiVOKeZZlQkZBskonh19FH8tQf4vgrsP47Hk/yIvaM0GYnPrae/2F7Xf+dDhY+1n8Y+K7+H4P9PTpJJdUJIVUWADtcvmLeAmipFc0KzrL1ARFTZrxN7buC/y/A+m/vrvJXbLn/g16nf6v/w+u/5+r/McD7f1uh146IfTgfn30+OR4N4KYJjEcfPp2Mcfx0dPHlbPz+5PStNT8W01QKELwd2a4iZ2lWaxoglVBvP8AUsJoFLWScyhkwiW+pHEkuvIyVkiciBmHfBItESDAJWv/SRuRQdS9gHekWGcDB5V1+T8+uCGlt/OpyogiRLBfY6NR6myZR/CdTwzv6HWJTxkQ8j28uiVQpmzhZzFdzgyYht+dfvCSXBJB0Ct9gD7wYaFLkgmKoXqmFoprJeFIsrQbYdQlp4Ptr+5GyWmY5f3Pxbnhgn4OaeBpFGtQH8P9miVjOC2WqlWQziH0deJ4Ss7SQUGpvgceA1wbdAT7H54DSVQBetaNGsXmLlaaojguhWvNSoQyz1GqXX4dbs9YJUNxDavL5PfObWFaXT3m4fPCKbXYbQ1OUPMFkuO5tMbkMpmV29RAb3CA7UJlOU4LJkxUsjhSPbMqmMziwyUNQ29VYnqOA0DwIUP2nrm6Hw+FwOBwOh8PhcDgcDofD4XA4HM+R3z/FjmIAKAAA"
+    }
+  ],
+  "ExcessCapacityTerminationPolicy": "default",
+  "Type": "maintain"
+}
