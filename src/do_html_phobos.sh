@@ -14,7 +14,7 @@ echo -e "\tgenerating html"
 
 cd $1/phobos
 
-DMD=../dmd/src/dmd
+DMD=../dmd/generated/*/release/$COMPILER_MODEL/dmd
 DOC=../web/2.0
 
 if [ "${2:0:4}" == "Win_" ]; then
