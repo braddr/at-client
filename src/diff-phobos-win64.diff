@@ -1,5 +1,5 @@
 diff --git a/etc/c/zlib/win64.mak b/etc/c/zlib/win64.mak
-index 0c387c9..b6fb208 100644
+index 339c5ea..e9af84d 100644
 --- a/etc/c/zlib/win64.mak
 +++ b/etc/c/zlib/win64.mak
 @@ -1,13 +1,12 @@
@@ -21,7 +21,7 @@ index 0c387c9..b6fb208 100644
  LDFLAGS=/nologo
  O=.obj
 diff --git a/win64.mak b/win64.mak
-index 7640595..6ff7422 100644
+index 6a7c552..e0cfc29 100644
 --- a/win64.mak
 +++ b/win64.mak
 @@ -30,14 +30,10 @@ CP=cp
@@ -54,7 +54,7 @@ index 7640595..6ff7422 100644
  MAKE=make
  
  ## D compiler
-@@ -670,17 +666,17 @@ CC32=$(CC)\..\..\cl
+@@ -658,17 +654,17 @@ CC32=$(CC)\..\..\cl
  
  # build phobos32mscoff.lib
  phobos32mscoff:

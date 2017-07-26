@@ -1,5 +1,5 @@
 diff --git a/win64.mak b/win64.mak
-index 69f3ba7..f6ec680 100644
+index d9e1052..0246a96 100644
 --- a/win64.mak
 +++ b/win64.mak
 @@ -2,14 +2,11 @@
@@ -20,8 +20,8 @@ index 69f3ba7..f6ec680 100644
  CP=cp
  
  DOCDIR=doc
-@@ -21,8 +18,8 @@ DFLAGS=-m$(MODEL) -conf= -O -release -dip25 -inline -w -Isrc -Iimport
- UDFLAGS=-m$(MODEL) -conf= -O -release -dip25 -w -Isrc -Iimport
+@@ -21,8 +18,8 @@ DFLAGS=-m$(MODEL) -conf= -O -release -dip1000 -inline -w -Isrc -Iimport
+ UDFLAGS=-m$(MODEL) -conf= -O -release -dip1000 -w -Isrc -Iimport
  DDOCFLAGS=-conf= -c -w -o- -Isrc -Iimport -version=CoreDdoc
  
 -#CFLAGS=/O2 /I"$(VCDIR)"\INCLUDE /I"$(SDKDIR)"\Include
