@@ -34,16 +34,16 @@ setuprelease()
 {
     case $os in
         Linux)
-            wget http://downloads.dlang.org/releases/2.x/2.067.0/dmd.2.067.0.linux.zip > dmd.2.067.0.linux.zip
-            unzip dmd.2.067.0.linux.zip
+            curl -SL http://downloads.dlang.org/releases/2.x/2.068.2/dmd.2.068.2.linux.zip > dmd.2.068.2.linux.zip
+            unzip dmd.2.068.2.linux.zip
             mv dmd2/* .
             rmdir dmd2
             ;;
         FreeBSD)
-            curl -SL http://downloads.dlang.org/releases/2.x/2.067.0/dmd.2.067.0.freebsd-32.zip > dmd.2.067.0.freebsd-32.zip
-            curl -SL http://downloads.dlang.org/releases/2.x/2.067.0/dmd.2.067.0.freebsd-64.zip > dmd.2.067.0.freebsd-64.zip
-            unzip -o dmd.2.067.0.freebsd-32.zip
-            unzip -o dmd.2.067.0.freebsd-64.zip
+            curl -SL http://downloads.dlang.org/releases/2.x/2.068.2/dmd.2.068.2.freebsd-32.zip > dmd.2.068.2.freebsd-32.zip
+            curl -SL http://downloads.dlang.org/releases/2.x/2.068.2/dmd.2.068.2.freebsd-64.zip > dmd.2.068.2.freebsd-64.zip
+            unzip -o dmd.2.068.2.freebsd-32.zip
+            unzip -o dmd.2.068.2.freebsd-64.zip
             mv dmd2/freebsd .
             mv dmd2/src .
             rm -rf dmd2
