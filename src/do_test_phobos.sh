@@ -19,7 +19,9 @@ case "$2" in
         ;;
 esac
 
-$makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile auto-tester-test >> ../phobos-unittest.log 2>&1
+DMD_PATH=`ls -1 ../dmd/generated/*/release/$COMPILER_MODEL/dmd$EXE`
+
+$makecmd DMD=$DMD_PATH MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile auto-tester-test >> ../phobos-unittest.log 2>&1
 if [ $? -ne 0 ]; then
     echo -e "\tphobos tests failed"
     exit 1
