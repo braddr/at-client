@@ -16,7 +16,7 @@ if [ "$2" == "stub" ]; then
     exit 0
 fi
 
-$makecmd DMD=../dmd/src/dmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile auto-tester-test >> ../druntime-unittest.log 2>&1
+$makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS -f $makefile auto-tester-test >> ../druntime-unittest.log 2>&1
 if [ $? -ne 0 ]; then
     echo -e "\tdruntime unittest failed to build"
     exit 1
