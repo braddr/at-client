@@ -14,7 +14,6 @@ echo -e "\tgenerating html"
 
 cd $1/phobos
 
-DMD=../dmd/src/dmd
 DOC=../web/2.0
 
 if [ "${2:0:4}" == "Win_" ]; then
@@ -23,7 +22,7 @@ else
     DD=WEBSITE_DIR
 fi
 
-$makecmd DDOC=$DMD $DD=$DOC DMD=$DMD MODEL=$OUTPUT_MODEL -f $makefile html >> ../phobos-html.log 2>&1
+$makecmd DDOC=$DMD $DD=$DOC MODEL=$OUTPUT_MODEL -f $makefile html >> ../phobos-html.log 2>&1
 if [ $? -ne 0 ]; then
     echo -e "\tphobos html generation failed"
     exit 1
