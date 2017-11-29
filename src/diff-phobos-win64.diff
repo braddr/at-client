@@ -54,7 +54,7 @@ index 6a7c552..e0cfc29 100644
  MAKE=make
  
  ## D compiler
-@@ -658,17 +654,17 @@ CC32=$(CC)\..\..\cl
+@@ -662,17 +658,17 @@ CC32=$(CC)\..\..\cl
  
  # build phobos32mscoff.lib
  phobos32mscoff:
