@@ -23,6 +23,7 @@ if [[ ! -z "$HOST_DC" && ( "$2" == "Win_32" || "$2" == "Win_32_64" ) ]]; then
     echo "HOST_DC=$HOST_DC" >> $1/dmd-unittest.log 2>&1
 fi
 
+export HOST_DC
 
 echo -e "\ttesting dmd"
 
