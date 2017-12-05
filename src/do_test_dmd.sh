@@ -46,10 +46,12 @@ fi
 
 cd $1/dmd
 
+DMD_PATH=`ls -1 $PWD/generated/*/release/$COMPILER_MODEL/dmd$EXE`
+
 if [ ! -z "$ARGS" ]; then
-    $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated ARGS="$ARGS" -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
+    $makecmd DMD=$DMD_PATH MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated ARGS="$ARGS" -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
 else
-    $makecmd MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
+    $makecmd DMD=$DMD_PATH MODEL=$OUTPUT_MODEL $EXTRA_ARGS RESULTS_DIR=generated -f $makefile auto-tester-test >> ../dmd-unittest.log 2>&1
 fi
 
 if [ $? -ne 0 ]; then
