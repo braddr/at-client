@@ -18,10 +18,10 @@ GCC_VER=${GCC_VER#gcc-}
 
 if [ ! -f ../../src/gcc-$GCC_VER.tar.bz2 ]; then
     echo "Downloading gcc-$GCC_VER.tar.bz2 from www.netgull.com gcc mirror"
-    curl --silent --output ../../src/gcc-$GCC_VER.tar.bz2 http://www.netgull.com/gcc/snapshots/$GCC_VER/gcc-$GCC_VER.tar.bz2
+    curl --silent --output ../../src/gcc-$GCC_VER.tar.xz http://www.netgull.com/gcc/snapshots/$GCC_VER/gcc-$GCC_VER.tar.xz
 fi
 
-tar jxf ../../src/gcc-$GCC_VER.tar.bz2 >> ../GDC-build.log 2>&1
+tar Jxf ../../src/gcc-$GCC_VER.tar.xz >> ../GDC-build.log 2>&1
 ./setup-gcc.sh gcc-$GCC_VER >> ../GDC-build.log 2>&1
 mkdir output-dir
 cd output-dir
