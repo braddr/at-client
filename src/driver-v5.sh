@@ -127,7 +127,6 @@ function runtests
 {
     if [ "$1" == "test-DMD" ]; then
         OS=$(detectos)
-        OS=Win_32_64
         data=("test" "master" "1" "$OS")
         data=("${data[@]}" "3")
         data=("${data[@]}" "1" "dlang" "dmd" "master")
