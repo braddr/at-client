@@ -15,13 +15,14 @@ cd $1/GDC
 #GCC_VER=5-20140831
 GCC_VER=`cat gcc.version`
 GCC_VER=${GCC_VER#gcc-}
+GCC_FILE=$GCC_VER.tar.xz
 
-if [ ! -f ../../src/gcc-$GCC_VER.tar.bz2 ]; then
-    echo "Downloading gcc-$GCC_VER.tar.bz2 from www.netgull.com gcc mirror"
-    curl --silent --output ../../src/gcc-$GCC_VER.tar.xz http://www.netgull.com/gcc/snapshots/$GCC_VER/gcc-$GCC_VER.tar.xz
+if [ ! -f ../../src/$GCC_FILE ]; then
+    echo "Downloading gcc-$GCC_FILE from www.netgull.com gcc mirror"
+    curl --silent --output ../../src/gcc-$GCC_FILE http://www.netgull.com/gcc/snapshots/$GCC_VER/gcc-$GCC_FILE
 fi
 
-tar Jxf ../../src/gcc-$GCC_VER.tar.xz >> ../GDC-build.log 2>&1
+tar Jxf ../../src/gcc-$GCC_FILE >> ../GDC-build.log 2>&1
 ./setup-gcc.sh gcc-$GCC_VER >> ../GDC-build.log 2>&1
 mkdir output-dir
 cd output-dir
