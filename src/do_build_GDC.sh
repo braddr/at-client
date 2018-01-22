@@ -19,7 +19,15 @@ GCC_FILE=$GCC_VER.tar.xz
 
 if [ ! -f ../../src/$GCC_FILE ]; then
     echo "Downloading gcc-$GCC_FILE from www.netgull.com gcc mirror"
-    curl --silent --output ../../src/gcc-$GCC_FILE http://www.netgull.com/gcc/snapshots/$GCC_VER/gcc-$GCC_FILE
+    curl --fail --silent --output ../../src/gcc-$GCC_FILE http://www.netgull.com/gcc/snapshots/$GCC_VER/gcc-$GCC_FILE
+    if [ $? -ne 0 ]; then
+        echo "Downloading gcc-$GCC_FILE gcc.skazkaforyou.com gcc mirror"
+        curl --fail --silent --output ../../src/gcc-$GCC_FILE http://gcc.skazkaforyou.com/snapshots/$GCC_VER/gcc-$GCC_FILE
+        if [ $? -ne 0 ]; then
+            echo -e "\tfailed to download $GCC_FILE"
+            exit 1
+        fi
+    fi
 fi
 
 tar Jxf ../../src/gcc-$GCC_FILE >> ../GDC-build.log 2>&1
