@@ -36,6 +36,15 @@ for x in /dev/xbd*; do
     disknum=$(($disknum + 1))
 done
 
+# setup swap
+dd if=/dev/zero of=/media/ephemeral0/swap0 bs=1m count=1024
+chmod 0600 /media/ephemeral0/swap0
+echo "md99  none    swap    sw,file=/media/ephemeral0/swap0,late 0   0" >> /etc/fstab
+dd if=/dev/zero of=/media/ephemeral1/swap1 bs=1m count=1024
+chmod 0600 /media/ephemeral1/swap1
+echo "md98  none    swap    sw,file=/media/ephemeral1/swap1,late 0   0" >> /etc/fstab
+swapon -aL
+
 # allow ec2-user to sudo without a tty
 echo "Defaults:ec2-user !requiretty" > /usr/local/etc/sudoers.d/9999-ec2-user-no-requiretty
 echo "ec2-user ALL=(ALL) NOPASSWD: ALL" >> /usr/local/etc/sudoers.d/9999-ec2-user-no-requiretty
