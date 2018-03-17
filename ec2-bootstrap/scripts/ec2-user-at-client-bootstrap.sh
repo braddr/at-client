@@ -60,6 +60,7 @@ git clone https://github.com/braddr/at-client
  cd ../..;
  echo "CPUS=$nproc" >> configs/`hostname`;
  echo "PARALLELISM=$npar" >> configs/`hostname`;
+ echo "export CC=cc" >> configs/`hostname`;
 )
 
 cat << EOF | crontab -
