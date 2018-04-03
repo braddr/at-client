@@ -13,10 +13,10 @@ index 7d4ab8c..3f04abd 100644
  
  include ../src/osmodel.mak
  
-diff --git a/test/d_do_test.d b/test/d_do_test.d
+diff --git a/test/tools/d_do_test.d b/test/tools/d_do_test.d
 index 847351c..7710098 100755
---- a/test/d_do_test.d
-+++ b/test/d_do_test.d
+--- a/test/tools/d_do_test.d
++++ b/test/tools/d_do_test.d
 @@ -493,7 +493,7 @@ int main(string[] args)
          switch (envData.os)
          {
