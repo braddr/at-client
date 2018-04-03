@@ -46,16 +46,3 @@ index dfda4fe..abc756f 100644
  	cd ..
  	cd samples
  	gmake -f win32.mak DMD=..\src\dmd.exe MODEL=$(MODEL) "LIB=..\..\phobos;$(LIB)" \
-diff --git a/test/runnable/test15779.d b/test/runnable/test15779.d
-index 557054a..900a953 100644
---- a/test/runnable/test15779.d
-+++ b/test/runnable/test15779.d
-@@ -8,7 +8,7 @@ int main()
- {
-     try
-     {
--        bar();
-+        //bar();
-     }
-     catch (Exception e)
-     {
