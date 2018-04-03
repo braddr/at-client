@@ -2,7 +2,7 @@ diff --git a/test/Makefile b/test/Makefile
 index 7d4ab8c..3f04abd 100644
 --- a/test/Makefile
 +++ b/test/Makefile
-@@ -81,6 +81,10 @@ ifeq (Win_64,$(OS))
+@@ -15,6 +15,10 @@ ifeq (Win_64,$(OS))
      OS:=win64
      MODEL:=64
  endif
@@ -17,7 +17,7 @@ diff --git a/test/tools/d_do_test.d b/test/tools/d_do_test.d
 index 847351c..7710098 100755
 --- a/test/tools/d_do_test.d
 +++ b/test/tools/d_do_test.d
-@@ -493,7 +493,7 @@ int main(string[] args)
+@@ -586,7 +586,7 @@ int main(string[] args)
          switch (envData.os)
          {
              case "win32": envData.ccompiler = "dmc"; break;

@@ -1,5 +1,5 @@
 diff --git a/etc/c/zlib/win64.mak b/etc/c/zlib/win64.mak
-index 339c5ea..e9af84d 100644
+index ced2ced27..ec9bc7779 100644
 --- a/etc/c/zlib/win64.mak
 +++ b/etc/c/zlib/win64.mak
 @@ -1,13 +1,12 @@
@@ -21,10 +21,10 @@ index 339c5ea..e9af84d 100644
  LDFLAGS=/nologo
  O=.obj
 diff --git a/win64.mak b/win64.mak
-index 6a7c552..e0cfc29 100644
+index 38375d2e4..b9cd15c08 100644
 --- a/win64.mak
 +++ b/win64.mak
-@@ -30,14 +30,10 @@ CP=cp
+@@ -28,14 +28,10 @@ CP=cp
  
  DIR=\dmd2
  
@@ -41,7 +41,7 @@ index 6a7c552..e0cfc29 100644
  
  ## Location of druntime tree
  
-@@ -56,9 +52,9 @@ UDFLAGS=-conf= -g -m$(MODEL) -O -w -dip25 -I$(DRUNTIME)\import
+@@ -54,9 +50,9 @@ UDFLAGS=-conf= -g -m$(MODEL) -O -w -dip25 -I$(DRUNTIME)\import -unittest
  
  ## C compiler, linker, librarian
  
@@ -54,7 +54,7 @@ index 6a7c552..e0cfc29 100644
  MAKE=make
  
  ## D compiler
-@@ -662,17 +658,17 @@ CC32=$(CC)\..\..\cl
+@@ -500,17 +496,17 @@ CC32=$(CC)\..\..\cl
  
  # build phobos32mscoff.lib
  phobos32mscoff:
@@ -74,4 +74,4 @@ index 6a7c552..e0cfc29 100644
 +	$(MAKE) -f win64.mak MODEL=$(MODEL) zlib$(MODEL).lib "CC=\$(CC)"\"" "LIB=\$(AR)"\""
  	cd ..\..\..
  
- ################## DOCS ####################################
+ ######################################################
