@@ -1,5 +1,6 @@
-CPUS=4
-PARALLELISM=4
+CPUS=8
+PARALLELISM=2
+TESTER_TIMEOUT=1800
 
 # both win32 and 64 since the compiler is 32 bit
 export LINKCMD="c:\cygwin\home\braddr\sandbox\dm\bin\link.exe"

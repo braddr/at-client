@@ -13,6 +13,7 @@ if [ "$OS" == "Win_32_64" ]; then
     export VCDIR="d:\vs2013\VC"
     export SDKDIR="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A"
     export VCBIN_DIR="$VCDIR\bin\x86_amd64"
+    export CC="$VCBIN_DIR\cl.exe"
     export INCLUDE="$VCDIR\include"
 
     export VCINSTALLDIR="d:\vs2013\VC"
