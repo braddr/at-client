@@ -1,9 +1,15 @@
 diff --git a/win32.mak b/win32.mak
-index dfda4fe..abc756f 100644
+index 0fd01770a..f1f2ab29c 100644
 --- a/win32.mak
 +++ b/win32.mak
-@@ -1,13 +1,12 @@
+@@ -1,18 +1,16 @@
 -MAKE=make
+-
+ defaulttarget:
+ 	cd src
+-	$(MAKE) -f win32.mak
++	make -f win32.mak
+ 	cd ..
  
  auto-tester-build:
  	cd src
