@@ -15,7 +15,8 @@ if [ "${2:0:7}" == "Darwin_" -o "${2:0:6}" == "Win_32" ]; then
 else
     BINDIR=bin$COMPILER_MODEL
 fi
-HOST_DC=`ls -1 $PWD/release-build/install/*/$BINDIR/dmd$EXE`
+DMDVER=2.079.0
+HOST_DC=`ls -1 $PWD/release-build/dmd-$DMDVER/*/$BINDIR/dmd$EXE`
 echo "HOST_DC=$HOST_DC" >> $1/dmd-unittest.log 2>&1
 
 if [[ ! -z "$HOST_DC" && ( "$2" == "Win_32" || "$2" == "Win_32_64" ) ]]; then
