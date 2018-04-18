@@ -13,10 +13,12 @@ case $os in
     Linux)
         MAKE=make
         nproc=`getconf _NPROCESSORS_ONLN`
+        download_osname=linux
         ;;
     FreeBSD)
         MAKE=gmake
         nproc=`getconf NPROCESSORS_ONLN`
+        download_osname=freebsd
         ;;
 esac
 npar=$(expr $nproc + 1)
@@ -32,7 +34,7 @@ fi
 
 git clone https://github.com/braddr/at-client
 (cd at-client;
- ./src/do_cache_dmd.sh 2.079.0 linux;
+ ./src/do_cache_dmd.sh 2.079.0 $download_osname;
  cd ../..;
  echo "CPUS=$nproc" >> configs/`hostname`;
  echo "PARALLELISM=$npar" >> configs/`hostname`;
