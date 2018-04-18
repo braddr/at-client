@@ -30,33 +30,9 @@ if [ $? -ne 0 ]; then
     (cd timelimit; $MAKE; sudo $MAKE install)
 fi
 
-setuprelease()
-{
-    case $os in
-        Linux)
-            curl -SL http://downloads.dlang.org/releases/2.x/2.068.2/dmd.2.068.2.linux.zip > dmd.2.068.2.linux.zip
-            unzip dmd.2.068.2.linux.zip
-            mv dmd2/* .
-            rmdir dmd2
-            ;;
-        FreeBSD)
-            curl -SL http://downloads.dlang.org/releases/2.x/2.068.2/dmd.2.068.2.freebsd-32.zip > dmd.2.068.2.freebsd-32.zip
-            curl -SL http://downloads.dlang.org/releases/2.x/2.068.2/dmd.2.068.2.freebsd-64.zip > dmd.2.068.2.freebsd-64.zip
-            unzip -o dmd.2.068.2.freebsd-32.zip
-            unzip -o dmd.2.068.2.freebsd-64.zip
-            mv dmd2/freebsd .
-            mv dmd2/src .
-            rm -rf dmd2
-            ;;
-    esac
-}
-
-
 git clone https://github.com/braddr/at-client
 (cd at-client;
- mkdir -p release-build/install;
- cd release-build/install;
- setuprelease;
+ ./src/do_cache_dmd.sh 2.079.0 linux;
  cd ../..;
  echo "CPUS=$nproc" >> configs/`hostname`;
  echo "PARALLELISM=$npar" >> configs/`hostname`;
