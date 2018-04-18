@@ -25,6 +25,7 @@ if [ ! -f ../../src/$GCC_FILE ]; then
         curl --fail --silent --output ../../src/gcc-$GCC_FILE http://gcc.skazkaforyou.com/snapshots/$GCC_VER/gcc-$GCC_FILE
         if [ $? -ne 0 ]; then
             echo -e "\tfailed to download $GCC_FILE"
+            echo -e "\tfailed to download $GCC_FILE" > ../GDC-build.log 2>&1
             exit 1
         fi
     fi
