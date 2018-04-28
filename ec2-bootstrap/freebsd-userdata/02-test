@@ -1,0 +1,37 @@
+>>/usr/local/etc/rc.d/at-installer
+#!/bin/sh
+
+# PROVIDE: at-installer
+# REQUIRE: NETWORKING
+
+# Define ec2_bootmail_enable=YES in /etc/rc.conf to enable sending an
+# instance-launched email when the system first boots.
+: ${ec2_bootmail_enable=NO}
+
+. /etc/rc.subr
+
+name="at_installer"
+rcvar=at_installer_enable
+start_cmd="at_installer_run"
+stop_cmd=":"
+
+at_installer_run()
+{
+    if [ ! -d /home/ec2-user/sandbox/at-client ]; then
+        PATH=$PATH:/usr/local/sbin::/usr/local/bin
+        export PATH
+
+        env ASSUME_ALWAYS_YES=yes pkg install awscli
+        env ASSUME_ALWAYS_YES=yes pkg install curl
+        aws --region us-west-2 s3 cp s3://client-bootstrap.auto-tester.puremagic.com/at-client-bootstrap.sh /var/tmp/at-client-bootstrap.sh
+        chmod u+x /var/tmp/at-client-bootstrap.sh
+        /var/tmp/at-client-bootstrap.sh
+
+        touch ${firstboot_sentinel}
+        touch ${firstboot_sentinel}-reboot
+    fi
+}
+
+load_rc_config $name
+run_rc_command "$1"
+
