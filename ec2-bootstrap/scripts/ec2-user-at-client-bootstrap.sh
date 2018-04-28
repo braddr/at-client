@@ -35,10 +35,10 @@ fi
 git clone https://github.com/braddr/at-client
 (cd at-client;
  ./src/do_cache_dmd.sh 2.079.0 $download_osname;
- cd ../..;
  echo "CPUS=$nproc" >> configs/`hostname`;
  echo "PARALLELISM=$npar" >> configs/`hostname`;
  echo "export CC=cc" >> configs/`hostname`;
+ cd ../..;
 )
 
 cat << EOF | crontab -
