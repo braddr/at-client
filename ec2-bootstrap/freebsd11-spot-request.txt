@@ -9,7 +9,7 @@
   "LaunchSpecifications": [
     {
       "ImageId": "ami-9ea77ffe",
-      "InstanceType": "c3.large",
+      "InstanceType": "c4.large",
       "KeyName": "cygwin-keypair-one",
       "IamInstanceProfile": {
         "Arn": "arn:aws:iam::676184567544:instance-profile/ec2-at-client"
@@ -20,17 +20,9 @@
           "Ebs": {
             "DeleteOnTermination": true,
             "VolumeType": "gp2",
-            "VolumeSize": 10,
+            "VolumeSize": 15,
             "SnapshotId": "snap-6695bd41"
           }
-        },
-        {
-          "DeviceName": "/dev/xvdca",
-          "VirtualName": "ephemeral0"
-        },
-        {
-          "DeviceName": "/dev/xvdcb",
-          "VirtualName": "ephemeral1"
         }
       ],
       "SecurityGroups": [

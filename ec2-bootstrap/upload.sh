@@ -9,4 +9,5 @@ aws --profile at s3 cp scripts/Linux-c4.large-bootstrap.sh     s3://client-boots
 
 # freebsd platforms
 aws --profile at s3 cp scripts/FreeBSD-c3.large-bootstrap.sh   s3://client-bootstrap.auto-tester.puremagic.com/FreeBSD-c3.large-bootstrap.sh
+aws --profile at s3 cp scripts/FreeBSD-c4.large-bootstrap.sh   s3://client-bootstrap.auto-tester.puremagic.com/FreeBSD-c4.large-bootstrap.sh
 
