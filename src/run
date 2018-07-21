@@ -2,6 +2,9 @@
 
 rm stop
 
+# limit swap space usage
+ulimit -w 1073741824
+
 while [ 1 ]; do
     if [ -f stop ]; then
         exit 0
