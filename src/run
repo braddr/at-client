@@ -3,7 +3,7 @@
 rm stop
 
 # limit swap space usage
-ulimit -w 1073741824
+ulimit -w 1048576
 
 while [ 1 ]; do
     if [ -f stop ]; then
