@@ -13,13 +13,31 @@ echo -e "\tapplying fixups to checked out source"
 
 # fixups for DMD related build types
 
+# allows to gradually remove the patching
+# If at some point a new diff needs to be introduced, `diffVersion` can be bumped
+# for the respective repository
+tryFixup()
+{
+    local repo=$1
+    local patchFile=$2
+    local diffVersion=$3
+    local repoBase=$(basename $repo | tr /a-z/ /A-Z/)
+
+    pushd $repo
+
+    if ! grep -q "NO_AUTOTESTER_PATCHING_V${diffVersion}_${repoBase}" $repo/win64.mak ; then
+        patch -p1 < $patchFile
+    fi
+    popd
+}
+
 if [ "x$3" == "x1" -a "x${2:0:4}" == "xWin_" ]; then
     # move minit.obj to be newer than minit.asm
     touch $1/druntime/src/rt/minit.obj
 
     # fix VC path issues
-    (cd $1/dmd; patch -p1 < ../../src/diff-dmd-win64.diff)
-    (cd $1/druntime; patch -p1 < ../../src/diff-druntime-win64.diff)
-    (cd $1/phobos; patch -p1 < ../../src/diff-phobos-win64.diff)
+    tryFixup $1/dmd ../../src/diff-dmd-win64.diff 1
+    tryFixup $1/druntime ../../src/diff-druntime-win64.diff 1
+    tryFixup $1/phobos ../../src/diff-phobos-win64.diff 1
 fi
 
