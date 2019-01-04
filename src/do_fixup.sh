@@ -19,7 +19,5 @@ if [ "x$3" == "x1" -a "x${2:0:4}" == "xWin_" ]; then
 
     # fix VC path issues
     (cd $1/dmd; patch -p1 < ../../src/diff-dmd-win64.diff)
-    (cd $1/druntime; patch -p1 < ../../src/diff-druntime-win64.diff)
-    (cd $1/phobos; patch -p1 < ../../src/diff-phobos-win64.diff)
 fi
 
