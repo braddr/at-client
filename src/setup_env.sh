@@ -60,7 +60,7 @@ case "$1" in
         ;;
     Win_32_64)
         makefile=win64.mak
-        EXTRA_ARGS=""
+        EXTRA_ARGS='CC="$(VCBIN_DIR)/cl.exe" AR="$(VCBIN_DIR)/lib.exe" VCDIR="$(VCINSTALLDIR)" SDKDIR="$(WindowsSdkDir)"'
         EXE=.exe
         OUTPUT_MODEL=64
         ;;
