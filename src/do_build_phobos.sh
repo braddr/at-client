@@ -10,7 +10,11 @@
 
 echo -e "\tbuilding phobos"
 
+top=$PWD
 cd $1/phobos
+
+build_step=phobos-build
+. src/host-dmd_env.sh
 
 DMD_PATH=`ls -1 ../dmd/generated/*/release/$COMPILER_MODEL/dmd$EXE`
 

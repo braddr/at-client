@@ -10,7 +10,11 @@
 
 echo -e "\tbuilding druntime"
 
+top=$PWD
 cd $1/druntime
+
+build_step=druntime-build
+. src/host-dmd_env.sh
 
 DMD_PATH=`ls -1 ../dmd/generated/*/release/$COMPILER_MODEL/dmd$EXE`
 
