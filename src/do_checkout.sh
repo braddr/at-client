@@ -45,13 +45,13 @@ function update_repo()
     if [ ! -d $top/source/$2/$3.git ]; then
         cd $top/source/$2
         echo "Cloning $2/$3:" >> $1
-        git clone --mirror git://github.com/$2/$3.git >> $1 2>&1
+        git clone --mirror https://github.com/$2/$3.git >> $1 2>&1
         if [ $? -ne 0 ]; then
             echo -e "\terror cloning out $2/$3"
             exit 1
         fi
         cd $top/source/$2/$3.git
-        git remote add origin git://github.com/$2/$3.git >> $1 2>&1
+        git remote add origin https://github.com/$2/$3.git >> $1 2>&1
     fi
 
     cd $top/source/$2/$3.git
